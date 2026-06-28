@@ -36,22 +36,22 @@ export default function TailorPage() {
   }, [draft, role, strength, voice]);
 
   const preview = useMemo(() => {
-    if (!role && !strength) return 'Add a role and your strongest signal to generate your first tailored pitch.';
-    return `For ${role || 'your target role'}, lead with ${strength || 'your edge'} and keep your tone ${voice || 'clear and confident'}. Focus on outcomes, evidence, and a crisp narrative around the problem you solved.`;
+    if (!role && !strength) return 'Add a role and your strongest signal to see your tailored positioning statement.';
+    return `For ${role || 'your target role'}, lead with ${strength || 'your edge'} and keep your tone ${voice || 'clear and confident'}. Focus on outcomes, evidence, and the problem you solved.`;
   }, [role, strength, voice]);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-      <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Tailor your story</p>
-        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Make your experience sound intentional.</h1>
+      <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+        <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Resume tailoring</p>
+        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Make your resume sound intentional for the role.</h1>
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          This space turns your background into a sharper positioning statement for a specific role.
+          Shape your experience into a clear, role-specific story that feels easier to understand and easier to trust.
         </p>
 
         <div className="mt-6 space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-slate-700">Role</label>
+            <label className="mb-1 block text-sm font-medium text-slate-700">Target role</label>
             <input
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -79,15 +79,15 @@ export default function TailorPage() {
       </div>
 
       <div className="space-y-4">
-        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Live draft</p>
+        <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+          <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Live draft</p>
           <p className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
             {preview}
           </p>
         </div>
 
-        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Notes</p>
+        <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+          <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Notes</p>
           <textarea
             rows={8}
             value={draft}

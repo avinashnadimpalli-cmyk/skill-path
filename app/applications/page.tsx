@@ -46,11 +46,11 @@ export default function ApplicationsPage() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-      <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Applications tracker</p>
-        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Keep momentum visible.</h1>
+      <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+        <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Opportunity tracker</p>
+        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Keep your applications moving.</h1>
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          Track where each opportunity stands without turning the process into a spreadsheet chore.
+          Track each role clearly so the process feels manageable and your momentum stays visible.
         </p>
 
         <div className="mt-6 space-y-4">
@@ -87,14 +87,14 @@ export default function ApplicationsPage() {
             onClick={addApplication}
             className="w-full rounded-2xl bg-slate-950 px-4 py-3 font-semibold text-white transition hover:bg-slate-800"
           >
-            Add application
+            Add to tracker
           </button>
         </div>
       </div>
 
       <div className="space-y-3">
         {items.map((item, index) => (
-          <div key={`${item.company}-${index}`} className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
+          <div key={`${item.company}-${index}`} className="rounded-[28px] border border-slate-200/70 bg-white/80 p-5 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-slate-950">{item.role}</p>

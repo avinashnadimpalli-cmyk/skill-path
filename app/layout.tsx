@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Skill Path Studio",
-  description: "A more intentional career navigation workspace for positioning, planning, and momentum.",
+  title: "Career Copilot",
+  description: "A clear career-planning workspace for role transitions and tailored positioning.",
 };
 
 export default function RootLayout({
@@ -31,13 +31,12 @@ export default function RootLayout({
         <header className="border-b border-white/10 bg-slate-950/70 px-6 py-4 text-slate-100 backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="text-lg font-semibold tracking-tight">Skill Path Studio</p>
-              <p className="text-sm text-slate-400">A sharper way to shape what comes next.</p>
+              <p className="text-lg font-semibold tracking-tight">Career Copilot</p>
+              <p className="text-sm text-slate-400">A clearer way to shape what comes next.</p>
             </div>
             <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-700">
-              <a href="/" className="rounded-full px-3 py-2 transition hover:bg-white/10">Northstar</a>
-              <a href="/tailor" className="rounded-full px-3 py-2 transition hover:bg-white/10">Tailor</a>
-              <a href="/applications" className="rounded-full px-3 py-2 transition hover:bg-white/10">Applications</a>
+              <a href="/" className="rounded-full px-3 py-2 transition hover:bg-white/10">Plan</a>
+              <a href="/tailor" className="rounded-full px-3 py-2 transition hover:bg-white/10">Resume</a>
               <a href="/profile" className="rounded-full px-3 py-2 transition hover:bg-white/10">Profile</a>
             </nav>
           </div>

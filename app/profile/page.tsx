@@ -40,11 +40,11 @@ export default function ProfilePage() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Profile</p>
-        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Make your identity easy to understand.</h1>
+      <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+        <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Career profile</p>
+        <h1 className="mt-3 text-3xl font-semibold text-slate-950">Keep your identity clear and easy to understand.</h1>
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          Your profile informs the way the app frames your experience and priorities.
+          This helps the app frame your experience in a way that feels consistent and relevant to the roles you want.
         </p>
 
         <div className="mt-6 space-y-4">
@@ -92,8 +92,8 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Identity snapshot</p>
+      <div className="rounded-[28px] border border-slate-200/70 bg-white/80 p-6 shadow-[0_18px_50px_-18px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+        <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">Profile snapshot</p>
         <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm text-slate-500">Name</p>
           <p className="mt-1 text-2xl font-semibold text-slate-950">{profile.name}</p>
