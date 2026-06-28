@@ -1,0 +1,61 @@
+import { GoogleGenAI, Type } from "@google/genai";
+import { NextResponse } from "next/server";
+
+// Initialize the SDK using your local environment key
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+export async function POST(req: Request) {
+  try {
+    const { resume, targetJob } = await req.json();
+
+    const prompt = `
+      You are an elite, highly critical technical Recruiter and Career Architect. 
+      Analyze the user's raw resume/experience profile against the industry expectations for the target role: "${targetJob}".
+      
+      Tasks:
+      1. Identify the 3 most critical, realistic skill gaps they have for this exact role.
+      2. Calculate a strict, realistic match score (0-100) based on their background.
+      3. Build a targeted 4-week learning curriculum to bridge those exact gaps. 
+
+      User Resume/Experience Profile:
+      ${resume}
+    `;
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-1.5-flash', // Blazing fast and cheap/free tier responsive
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            matchScore: { type: Type.INTEGER },
+            gaps: { type: Type.ARRAY, items: { type: Type.STRING } },
+            weeks: {
+              type: Type.ARRAY,
+              items: {
+                type: Type.OBJECT,
+                properties: {
+                  weekNumber: { type: Type.INTEGER },
+                  focus: { type: Type.STRING },
+                  skills: { type: Type.ARRAY, items: { type: Type.STRING } },
+                  project: { type: Type.STRING },
+                  resourceSearchQuery: { type: Type.STRING }
+                },
+                required: ["weekNumber", "focus", "skills", "project", "resourceSearchQuery"],
+              }
+            }
+          },
+          required: ["matchScore", "gaps", "weeks"],
+        }
+      }
+    });
+
+    const data = JSON.parse(response.text);
+    return NextResponse.json(data);
+
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "AI Synthesis Failed" }, { status: 500 });
+  }
+}
